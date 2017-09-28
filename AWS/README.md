@@ -27,11 +27,11 @@ The Get-R53HostedZones.ps1 usage looks like:
 The script has menus to walk you through it.  
 If you'd prefer to create zones and records via a CSV file, the script will allow the importing of a CSV file in the following format:
 
-<sub>ZoneName | RecordName | RecordType | RecordTTL | RecordData              | Environment </sub>
+<sub>ZoneName</sub> | <sub>RecordName</sub> | <sub>RecordType</sub> | <sub>RecordTTL</sub> | <sub>RecordData</sub>              | <sub>Environment </sub>
 ----------|------------|------------|-----------|-------------------------|-------------
- <sub>abcd.com</sub> | @          | A          | 3600      | 192.168.1.1,192.168.1.2 | CMG-DST     
- <sub>abcd.com | www        | CNAME      | 3600      | abcd.com                | CMG-DST  </sub>   
- <sub>abcd.com | www        | CNAME      | 3600      | abcd.com                | CMGSandbox  </sub>
+ <sub>abcd.com</sub> | <sub>@</sub>          | <sub>A</sub>          | <sub>3600</sub>      | <sub>192.168.1.1,192.168.1.2</sub> | <sub>CMG-DST</sub>     
+ <sub>abcd.com</sub> | <sub>www</sub>        | <sub>CNAME</sub>      | <sub>3600</sub>      | <sub>abcd.com</sub>                | <sub>CMG-DST  </sub>   
+ <sub>abcd.com</sub> | <sub>www</sub>        | <sub>CNAME</sub>      | <sub>3600</sub>      | <sub>abcd.com</sub>                | <sub>CMGSandbox  </sub>
 
 If you want to create multiple zones without creating records inside of them, you can use a CSV in the same format as above but the only required data is the ZoneName and Environment.   
    
@@ -57,16 +57,16 @@ Each record creation will ask for a ConflictAction:
   
 If you'd prefer to manage records via a CSV file, the script will allow the importing of a CSV file in the following format:
 
-ZoneName | RecordName | RecordType | RecordTTL | RecordData              | Environment | RecordAction | ConflictAction 
+<sub>ZoneName</sub> | <sub>RecordName</sub> | <sub>RecordType</sub> | <sub>RecordTTL</sub> | <sub>RecordData</sub> | <sub>Environment</sub> | <sub>RecordAction</sub> | <sub>ConflictAction</sub> 
 ----------|------------|------------|-----------|-------------------------|-------------|--------------|----------------
- abcd.com | @          | A          | 3600      | 192.168.1.1,192.168.1.2 | CMG-DST     | Create       | Overwrite      
- abcd.com | www        | CNAME      | 3600      | abcd.com                | CMG-DST     | Create       | Overwrite      
- abcd.com | testrecord | CNAME      |           |                         | CMG-DST     | Delete       |                
- abcd.com | record1    | A          | 3600      | 192.168.1.13            | CMG-DST     | Create       | Append         
- abcd.com | record2    | CNAME      | 3600      | www.abcd.com            | CMG-DST     | Create       | Overwrite      
- test.com | @          | A          | 3600      | 192.168.1.1,192.168.1.2 | CMGSandbox  | Create       | Skip           
- test.com | www        | A          | 3600      | 192.168.1.1,192.168.1.2 | CMGSandbox  | Create       | Skip           
- test.com | record5    | A          |           |                         | CMGSandbox  | Delete       |                
+ <sub>abcd.com</sub> | <sub>@</sub>          | <sub>A</sub>          | <sub>3600</sub>      | <sub>192.168.1.1,192.168.1.2</sub> | <sub>CMG-DST</sub>     | <sub>Create</sub>       | <sub>Overwrite</sub>      
+ <sub>abcd.com</sub> | <sub>www</sub>        | <sub>CNAME</sub>      | <sub>3600</sub>      | <sub>abcd.com</sub>                | <sub>CMG-DST</sub>     | <sub>Create</sub>       | <sub>Overwrite</sub>      
+ <sub>abcd.com</sub> | <sub>testrecord</sub> | <sub>CNAME</sub>      | <sub></sub>          | <sub></sub>                        | <sub>CMG-DST</sub>     | <sub>Delete</sub>       | <sub></sub>               
+ <sub>abcd.com</sub> | <sub>record1</sub>    | <sub>A</sub>          | <sub>3600</sub>      | <sub>192.168.1.13</sub>            | <sub>CMG-DST</sub>     | <sub>Create</sub>       | <sub>Append</sub>         
+ <sub>abcd.com</sub> | <sub>record2</sub>    | <sub>CNAME</sub>      | <sub>3600</sub>      | <sub>www.abcd.com</sub>            | <sub>CMG-DST</sub>     | <sub>Create</sub>       | <sub>Overwrite</sub>      
+ <sub>test.com</sub> | <sub>@</sub>          | <sub>A</sub>          | <sub>3600</sub>      | <sub>192.168.1.1,192.168.1.2</sub> | <sub>CMGSandbox</sub>  | <sub>Create</sub>       | <sub>Skip</sub>           
+ <sub>test.com</sub> | <sub>www</sub>        | <sub>A</sub>          | <sub>3600</sub>      | <sub>192.168.1.1,192.168.1.2</sub> | <sub>CMGSandbox</sub>  | <sub>Create</sub>       | <sub>Skip</sub>           
+ <sub>test.com</sub> | <sub>record5</sub>    | <sub>A</sub>          | <sub></sub>          | <sub></sub>                        | <sub>CMGSandbox</sub>  | <sub>Delete</sub>       | <sub></sub>               
    
 	
 The Change-R53ResourceRecords.ps1 usage looks like:
