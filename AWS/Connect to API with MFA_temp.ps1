@@ -8,6 +8,8 @@ Function ConnectToApiWithMfa($Environment){
     Set-AWSCredentials -ProfileName $Environment
     Set-DefaultAWSRegion -Region us-east-1
     
+    #small change
+
     If (Get-IAMMFADevice){
         $SessionToken = $NULL
         $AccessKeyId = $NULL
